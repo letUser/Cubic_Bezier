@@ -60,5 +60,3 @@ for (let circle of circles) {
 
     circle.ondragstart = () => false; //kill native event //убираем нативный ивент
 }
-
-console.log(document.parentNode);

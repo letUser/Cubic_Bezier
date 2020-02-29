@@ -14,5 +14,7 @@ svg.setAttribute('type', 'image/svg+xml');
 svg.setAttribute('data', 'src/line.svg');
 div.append(svg);
 
-let i = document.getElementById('bezier').contentDocument.body;
-console.log(i)
+let header = document.createElement('div');
+header.classList.add('header');
+header.innerHTML = `<p> Cubic Bezier UI serve </p>`;
+document.body.prepend(header);
