@@ -2,5 +2,5 @@
  
  Small UI service to calculate and visualize cubic-bezier properties.
 
- <b>See deployment:</b>
+ <b>See deployment:</b> <br />
  <a href="https://letuser.github.io/Cubic_Bezier/">https://letuser.github.io/Cubic_Bezier/</a>
