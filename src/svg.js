@@ -21,6 +21,12 @@ for (let circle of circles) {
         circle.onmouseup = () => {
             document.removeEventListener('mousemove', onMouseMove);
             circle.onmouseup = null;
+
+            let x = event.pageX;
+            let y = event.pageY;
+            
+            
+
         };
     };
 

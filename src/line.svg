@@ -7,7 +7,7 @@
   </g>
  </g>
  <g>
-  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_3" y2="1" x2="200" y1="200" x1="1" stroke-width="3" fill="none"/>
+  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_3" x1="1" x2="200" y1="200" y2="1" stroke-width="3" fill="none"/>
   </g>
   <g>
   <circle id="x2" fill="#000" stroke="#000" r="10" cx="1" cy="200" />
