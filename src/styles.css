@@ -6,6 +6,7 @@ body {
     width: 300px;
     height: 300px;
     margin: 0 auto;
+    border: 1px solid #6769cf;
 }
 
 .header {

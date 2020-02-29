@@ -6,18 +6,26 @@ circles.push(bottomTrigger);
 let topTrigger = document.getElementById('topTrigger');
 circles.push(topTrigger);
 let line = document.getElementById('line');
+let text = document.getElementById('text');
+text.style.userSelect = "none";
 
 /* INIT START PARAMS */
 /* ОБЪЯВЛЯЕМ НАЧАЛЬНОЕ ЗНАЧЕНИЕ */
-let x1 = 140;
-let y1 = 140;
-let x2 = 140;
-let y2 = 140;
+let x1 = 150;
+let y1 = 150;
+let x2 = 150;
+let y2 = 150;
 
 /* ITERATION FOR EVERY CIRCLE-TRIGGER */
 /* ЦИКЛ ПО КАЖДОМУ КРУГУ-ТРИГГЕРУ */
 for (let circle of circles) {
+    circle.onmouseover = () => {
+        circle.style.cursor = "grab";
+    }
+
     circle.onmousedown = () => {
+        circle.style.cursor = "grabbing";
+
         let onMouseMove = (event) => { //movement visual //визуализируем движение
             circle.setAttribute('cx', event.pageX);
             circle.setAttribute('cy', event.pageY);
@@ -48,15 +56,28 @@ for (let circle of circles) {
                 }
             }
 
-            line.setAttribute("d", `M10 290 C ${x1} ${y1}, ${x2} ${y2}, 290 10`);
+            line.setAttribute("d", `M0 300 C ${x1} ${y1}, ${x2} ${y2}, 300 0`); //change coords //меняем координаты
+
+            text.innerHTML = `cubic-bezier(${bezier(x1)} ${bezier(y1)}, ${bezier(x2)} ${bezier(y2)})`; //show Bezier props //показываем значения Безье
         };
 
         document.addEventListener('mousemove', onMouseMove); //concretize func //конкретизируем функ-ию
 
-        circle.onmouseup = () => document.removeEventListener('mousemove', onMouseMove);
-        document.onmouseup = () => document.removeEventListener('mousemove', onMouseMove);
-        //remove conc func //убираем конк
+        circle.onmouseup = () => { //remove conc func //убираем конк
+            document.removeEventListener('mousemove', onMouseMove);
+            circle.style.cursor = "grab";
+        };
+        document.onmouseup = () => {
+            document.removeEventListener('mousemove', onMouseMove);
+            circle.style.cursor = "grab";
+        };
     };
 
     circle.ondragstart = () => false; //kill native event //убираем нативный ивент
 }
+
+let bezier = (num) => { //visualize Bezier //визуализируем Безье
+    return ((num * 100 / 300) / 100).toFixed(2);
+}
+
+text.innerHTML = `cubic-bezier(${bezier(x1)} ${bezier(y1)}, ${bezier(x2)} ${bezier(y2)})`;
