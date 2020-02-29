@@ -1,32 +1,42 @@
+/* VARS */
+/* ПЕРЕМЕННЫЕ */
 let circles = [];
-let x2 = document.getElementById('x2');
-circles.push(x2);
-let y2 = document.getElementById('y2');
-circles.push(y2);
+let bottomTrigger = document.getElementById('bottomTrigger');
+circles.push(bottomTrigger);
+let topTrigger = document.getElementById('topTrigger');
+circles.push(topTrigger);
+let line = document.getElementById('line');
 
+/* INIT START PARAMS */
+/* ОБЪЯВЛЯЕМ НАЧАЛЬНОЕ ЗНАЧЕНИЕ */
+let x1 = 150;
+let y1 = 150;
+let x2 = 150;
+let y2 = 150;
+
+/* ITERATION FOR EVERY CIRCLE-TRIGGER */
+/* ЦИКЛ ПО КАЖДОМУ КРУГУ-ТРИГГЕРУ */
 for (let circle of circles) {
     circle.onmousedown = () => {
+        let onMouseMove = (event) => { //movement visual //визуализируем движение
+            circle.setAttribute('cx', event.pageX);
+            circle.setAttribute('cy', event.pageY);
 
-        let moveAt = (pageX, pageY) => {
-            circle.setAttribute('cx', pageX);
-            circle.setAttribute('cy', pageY);
+            if (event.target === circles[0]) { //if bttm trig, tho //если нижний триггер, то 
+                x1 = event.pageX;
+                y1 = event.pageY;
+            } else { //if not bttm tri, tho //если не ниж, то
+                x2 = event.pageX;
+                y2 = event.pageY;
+            }
+
+            line.setAttribute("d", `M10 290 C ${x1} ${y1}, ${x2} ${y2}, 290 10`); //line coords //коорд линии
         };
 
-        let onMouseMove = (event) => {
-            moveAt(event.pageX, event.pageY);
-        };
-
-        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mousemove', onMouseMove); //concretize func //конкретизируем функ-ию
 
         circle.onmouseup = () => {
-            document.removeEventListener('mousemove', onMouseMove);
-            circle.onmouseup = null;
-
-            let x = event.pageX;
-            let y = event.pageY;
-            
-            
-
+            document.removeEventListener('mousemove', onMouseMove); //remove conc func //убираем конк
         };
     };
 

@@ -1,19 +1,21 @@
-<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
  <g>
-  <rect fill="#fff" id="canvas_background" height="203" width="201" y="-1" x="-1"/>
+  <rect fill="#fff" id="canvas_background" height="300" width="300" y="-1" x="-1"/>
   <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
    <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
   </g>
  </g>
  <g>
-  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_3" x1="1" x2="200" y1="200" y2="1" stroke-width="3" fill="none"/>
+  <path stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="line" stroke-width="3" fill="none"
+    d="M10 290 
+      C 150 150, 150 150, 290 10"/>
   </g>
   <g>
-  <circle id="x2" fill="#000" stroke="#000" r="10" cx="1" cy="200" />
+  <circle id="bottomTrigger" fill="#000" stroke="#000" r="10" cx="1" cy="300" />
   </g>
   <g>
-  <circle id="y2" fill="#000" stroke="#000" r="10" cx="200" cy="1" />
+  <circle id="topTrigger" fill="#000" stroke="#000" r="10" cx="300" cy="1" />
  </g>
 
  <script xlink:href="svg.js" />
